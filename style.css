@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.sidebar{
+    position:fixed;
+    width: 250px;
+    height: 100%;
+    left: 0;
+    background: #1b1b1b;
+}
+.sidebar .text{
+    color: white;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 65px;
+    text-align: center;
+    background: #1e1e1e;
+    letter-spacing: 1px;
+}
+nav ul{
+    background:#1e1e1e;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+nav ul li{
+    line-height: 40px;
+    border-bottom:  1px solid rgba(255,255,255,0.1);
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left:  20px;
+    font-weight: 300;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+}
+nav ul li a:hover{
+    color: cyan;
+    background:#1e1e1e;
+    border-left-color: cyan;
+}
+nav ul ul{
+    position: static;
+    display: none;
+}
+nav ul ul li a{
+    font-size: 17px;
+    color:#e6e6e6;
+    padding-left: 80px;
+}
+h1{
+    margin-left: 600px;
+    margin-bottom: 50px;
+}
+h2{
+    margin-left: 700px;
+    margin-bottom: 20px;
+}
+h3{
+    margin-left: 300px;
+    margin-bottom: 20px;
+}
+p{
+    margin-left: 300px;
+    margin-top: 30px;
+    margin-right: 25px;
+    text-align:justify;
+}
+input[type=text]{
+    margin-left: 5px;
+}
+label{
+    margin-left: 300px;
+}
