@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Olasılık Ve İstatistik</title> 
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>   
+    </head>
+    <body>
+        <nav class="sidebar">
+          <div class="text">Formüller</div>
+            <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="Formül1.html">Aritmetik Ortalama</a></li>
+            <li><a href="Formül2.html">Geometrik Ortalama</a></li>
+            <li><a href="Formül3.html">Harmonik Ortalama</a></li>
+            <li><a href="Formül4.html">Mod Tepe Değer</a></li>
+            <li><a href="Formül6.html">Ortalama Mutlak Sapma</a></li>
+            <li><a href="Formül7.html">Standart Sapma ve Değişim Katsayısı</a></li>
+            <li><a href="Formül8.html">Permütasyon</a></li>
+            <li><a href="Formül9.html">Kombinasyon</a></li>
+            <li><a href="Formül10.html">Çarpıklık ve Basıklık Katsayısı</a></li>
+            </ul>
+        </nav>
+    <h1>Aritmetik Ortalama</h1>
+    <label for="sayilar">Değerleri giriniz:</label>
+    <input type="text" id="sayilar" name="sayilar">
+    <button onclick="takeElements(sayilar.value)">Gönder</button>
+    <p id="numbers"></p>
+    <p id="demo"></p>
+    <script>
+    function takeElements(sayilar){
+        var sayi=sayilar.split(" ");
+        let toplam=0.0;
+	    var aortalama=0;
+    for(i=0;i<sayi.length;i++){
+        toplam=Number(toplam)+Number(sayi[i]);
+        console.log(toplam);
+		aortalama=toplam/sayi.length;
+    }
+    console.log(aortalama);
+    document.getElementById("numbers").innerHTML="Girilen Sayılar: "+sayilar;
+    document.getElementById("demo").innerHTML="Sonuç: "+aortalama;
+    } 
+    </script>    
+    </body>
+</html>
