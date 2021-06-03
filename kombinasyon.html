@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Olasılık Ve İstatistik</title> 
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>   
+    </head>
+    <body>
+        <nav class="sidebar">
+          <div class="text">Formüller</div>
+            <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="Formül1.html">Aritmetik Ortalama</a></li>
+            <li><a href="Formül2.html">Geometrik Ortalama</a></li>
+            <li><a href="Formül3.html">Harmonik Ortalama</a></li>
+            <li><a href="Formül4.html">Mod Tepe Değer</a></li>
+            <li><a href="Formül6.html">Ortalama Mutlak Sapma</a></li>
+            <li><a href="Formül7.html">Standart Sapma ve Değişim Katsayısı</a></li>
+            <li><a href="Formül8.html">Permütasyon</a></li>
+            <li><a href="Formül9.html">Kombinasyon</a></li>
+            <li><a href="Formül10.html">Çarpıklık ve Basıklık Katsayısı</a></li>
+            </ul>
+        </nav>
+    <h1>Kombinasyon</h1>
+    <label for="elemans">Eleman Sayısı giriniz: </label>
+    <input type="text" id="elemans" name="elemans">
+    <label for="secims">Seçim sayısını giriniz:</label>
+    <input type="text" id="secims" name="secims">
+    <button onclick="kombinasyon(elemans.value,secims.value)">Gönder</button>
+    <p id="sonuc"></p>
+    <script>
+    function kombinasyon(elemans,secims){
+    
+	var sonuc;
+	var temp=elemans-secims;
+
+	function faktoriyel_hesap(sayi){
+		var faktoriyel=1;
+		if(sayi>=0){
+			for(var i=1;i<=sayi;i++){
+				faktoriyel=faktoriyel*i;
+			}	
+		}
+		return faktoriyel;
+	}
+	sonuc=faktoriyel_hesap(elemans)/(faktoriyel_hesap(secims)*faktoriyel_hesap(temp));
+	console.log(sonuc);
+    document.getElementById("sonuc").innerHTML="Sonuç:"+sonuc;
+}
+    </script>    
+    </body>
+</html>
