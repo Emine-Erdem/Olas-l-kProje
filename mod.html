@@ -1,0 +1,63 @@
+<html lang="tr">
+    <head>
+        <meta charset="utf-8">
+        <title>Olasılık Ve İstatistik</title> 
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>   
+    </head>
+<body>
+    <nav class="sidebar">
+        <div class="text">Formüller</div>
+        <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="Formül1.html">Aritmetik Ortalama</a></li>
+            <li><a href="Formül2.html">Geometrik Ortalama</a></li>
+            <li><a href="Formül3.html">Harmonik Ortalama</a></li>
+            <li><a href="Formül4.html">Mod Tepe Değer</a></li>
+            <li><a href="Formül6.html">Ortalama Mutlak Sapma</a></li>
+            <li><a href="Formül7.html">Standart Sapma ve Değişim Katsayısı</a></li>
+            <li><a href="Formül8.html">Permütasyon</a></li>
+            <li><a href="Formül9.html">Kombinasyon</a></li>
+            <li><a href="Formül10.html">Çarpıklık ve Basıklık Katsayısı</a></li>
+        </ul>
+    </nav>
+    <h1>Mod Tepe Değer</h1>
+    <label for="sayilar">Değerleri giriniz:</label>
+    <input type="text" id="sayilar" name="sayilar">
+    <button onclick="takeElements(sayilar.value)">Gönder</button>
+    <p id="numbers"></p>
+    <p id="sonuc"></p>
+    <script>
+    function takeElements(sayilar){
+    var sayi=sayilar.split(" ");
+	var sayidizi=[];
+    var modlar=[];
+	var count=[];
+	var a;
+	var number;
+	var maksindeks=0;
+	for(i=0;i<sayi.length;i++)
+		sayidizi[i]=parseInt(sayi[i]);
+	for (a=0;a<sayi.length;a+=1){
+		number=sayidizi[a];
+		count[number]=(count[number]||0)+1;
+		if(count[number]>maksindeks){
+			maksindeks=count[number];
+		}
+	}
+	for(a in count)
+		if(count.hasOwnProperty(a)){
+			if(count[a]==maksindeks){
+				modlar.push(Number(a));
+			}
+		}
+	console.log(modlar);//mod
+	console.log(maksindeks);//modun frekansı(tekrar sayısı)
+    document.getElementById("numbers").innerHTML="Girilen sayılar: "+sayidizi;
+	document.getElementById("sonuc").innerHTML="Sonuç: "+modlar;
+}
+    </script>
+
+    
+</body>
