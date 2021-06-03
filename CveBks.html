@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Olasılık Ve İstatistik</title> 
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>   
+    </head>
+    <body>
+        <nav class="sidebar">
+          <div class="text">Formüller</div>
+            <ul>
+            <li><a href="index.html">Anasayfa</a></li>
+            <li><a href="Formül1.html">Aritmetik Ortalama</a></li>
+            <li><a href="Formül2.html">Geometrik Ortalama</a></li>
+            <li><a href="Formül3.html">Harmonik Ortalama</a></li>
+            <li><a href="Formül4.html">Mod Tepe Değer</a></li>
+            <li><a href="Formül6.html">Ortalama Mutlak Sapma</a></li>
+            <li><a href="Formül7.html">Standart Sapma ve Değişim Katsayısı</a></li>
+            <li><a href="Formül8.html">Permütasyon</a></li>
+            <li><a href="Formül9.html">Kombinasyon</a></li>     
+            <li><a href="Formül10.html">Çarpıklık ve Basıklık Katsayısı</a></li>
+            </ul>
+        </nav>
+    <h1>Çarpıklık ve Basıklık Katsayısı</h1>
+    <label for="sayilar">Sayıları giriniz: </label>
+    <input type="text" id="sayilar" name="sayilar">
+    <button onclick="takeElements(sayilar.value)">Gönder</button>
+    <p id="sonuc"></p>
+    <p id="sonuc2"></p>
+    <script>
+    function takeElements(sayilar){
+        function carpıklıkKatsayısı(sayilar){
+            var sayi=sayilar.split(" ");
+        	var sayidizi=[];
+	        for(i=0;i<sayi.length;i++)
+		        sayidizi[i]=parseInt(sayi[i]);
+	        var elemansayisi=sayidizi.length;
+	        var delta=0;
+	        var delta_n=0;
+	        var term1=0;
+	        var N=0;
+	        var mean=0;
+	        var m2=0;
+	        var m3=0;
+	        var g;
+	
+	        for(var i=0;i<elemansayisi;i++){
+		        N +=1;
+		        delta=sayidizi[i]-mean;
+		        delta_n=delta/N;
+    		    term1=delta*delta_n*(N-1);
+	    	    m3 +=term1*delta_n*(N-2) - 3*delta_n*m2;
+		        m2 +=term1;
+		        mean +=delta_n;
+	        }
+	
+	        g= Math.sqrt(N)*m3 / Math.pow(m2,3/2);
+	
+	        var sonuc;
+	        sonuc= Math.sqrt(N*(N-1))*g/(N-2);
+            document.getElementById("sonuc").innerHTML="Çarpıklık Katsayısı: "+sonuc;
+        	console.log(sonuc);
+        }
+        function kurtosis(sayilar){
+            var sayi=sayilar.split(" ");
+	        var sayidizi=[];
+	    for(i=0;i<sayi.length;i++)
+		    sayidizi[i]=parseInt(sayi[i]);
+	
+        var elemansayisi=sayidizi.length;
+        var delta=0;
+	    var delta_n=0;
+	    var delta_n2=0;
+	    var term1=0;
+	    var N=0;
+	    var mean=0;
+	    var m2=0;
+	    var m3=0;
+	    var m4=0;
+	    var g;
+	
+	    for(var i=0;i<elemansayisi;i++){
+		    N +=1;
+		
+		    delta=sayidizi[i]-mean;
+		    delta_n=delta/N;
+		    delta_n2=delta_n*delta_n;
+		
+		    term1=delta*delta_n*(N-1);
+		
+		    m4 +=term1*delta_n2*(N*N-3*N+3)+6*delta_n2*m2-4*delta_n*m3;
+		    m3 +=term1*delta_n*(N-2) - 3*delta_n*m2;
+		    m2 +=term1;
+		    mean +=delta_n;	
+	    }
+	
+	
+	    g=(N*m4)/(m2*m2)-3;
+	
+    	var sonuc;
+	
+	    sonuc=(N-1)/((N-2)*(N-3))*((N+1)*g+6);
+	    console.log(sonuc);
+        document.getElementById("sonuc2").innerHTML="Basıklık Katsayısı : "+sonuc;
+        }
+        
+        carpıklıkKatsayısı(sayilar);
+        kurtosis(sayilar);
+    }
+    
+    </script>    
+    </body>
+</html>
